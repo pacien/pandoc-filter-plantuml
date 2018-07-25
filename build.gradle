@@ -21,6 +21,6 @@ repositories {
 
 dependencies {
     testCompile group: 'junit', name: 'junit', version: '4.12'
-    compile group: 'com.fasterxml.jackson.core', name: 'jackson-databind', version: '2.9.3'
+    compile group: 'com.fasterxml.jackson.core', name: 'jackson-databind', version: '2.9.6'
     compile group: 'net.sourceforge.plantuml', name: 'plantuml', version: '8059'
 }
