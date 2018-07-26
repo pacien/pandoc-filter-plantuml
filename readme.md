@@ -49,7 +49,7 @@ The following rendering options can be supplied as [fenced code attributes][fenc
 
 * `.centered`: centers the diagram horizontally on the page
 * `caption="Some caption"`: adds a figure caption below the diagram
-* `label="somelabel`: adds a label to the figure
+* `label="somelabel"`: adds a label to the figure
 * `width=\columnwidth` and `height=100pt`: resize the diagram using the `\resizebox` command,
   keeping the aspect ration of only one of the two is given
 
