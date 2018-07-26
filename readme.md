@@ -3,39 +3,55 @@ pandoc-filter-plantuml
 
 A Pandoc AST filter rendering PlantUML code blocks into vector diagrams.
 
-This filter produces TikZ code that must then be rendered using another filter such as
-[tikz.py][tikz].
+This filter produces TikZ code that can be rendered as vector diagrams in PDF documents,
+or as raster graphics by using another filter such as [tikz.py][tikz].
 
 
-Usage
------
+Example
+-------
 
 A PlantUML diagram in an example Pandoc Markdown file `example.md`:
 
-    ```puml
+    ---
+    header-includes: \usepackage{tikz}
+    ---
+    
+    ```{.puml .centered caption="Courtesy protocol" width=\columnwidth}
     @startuml
     Bob->Alice : hello
+    Alice->Bob : hi
     @enduml
     ```
 
-Using the helper scripts [tikz.py][tikz] and `pandoc-filter-plantuml.sh`:
+Using the helper scripts `pandoc-filter-plantuml.sh`:
 
     #/bin/sh
     java -jar pandoc-filter-plantuml.jar <&0
 
-Can be rendered and included as a vector resource in a PDF by running:
+Can be rendered as a vector resource in a PDF by running:
 
     % pandoc --filter=pandoc-filter-plantuml.sh \
-             --filter=tikz.py \
              --output=example.pdf \
              example.md
 
-Or as an image in an HTML document with the following command:
+Or as a raster image using [tikz.py][tikz] in an HTML document with the following command:
 
     % pandoc --filter=pandoc-filter-plantuml.sh \
              --filter=tikz.py \
              --output=example.html \
              example.md
+
+
+Options
+-------
+
+The following rendering options can be supplied as [fenced code attributes][fenced_code_attribute]:
+
+* `.centered`: centers the diagram horizontally on the page
+* `caption="Some caption"`: adds a figure caption below the diagram
+* `label="somelabel`: adds a label to the figure
+* `width=\columnwidth` and `height=100pt`: resize the diagram using the `\resizebox` command,
+  keeping the aspect ration of only one of the two is given
 
 
 Build
@@ -54,3 +70,4 @@ See /license.txt
 
 
 [tikz]: https://github.com/jgm/pandocfilters/blob/master/examples/tikz.py
+[fenced_code_attribute]: http://pandoc.org/MANUAL.html#fenced-code-blocks
