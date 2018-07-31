@@ -65,8 +65,16 @@ An autonomous jar file can be generated using the `jar` task.
 License
 -------
 
-Project released under the terms of the GNU GPL v3.
-See /license.txt
+Copyright (C) 2018 Pacien TRAN-GIRARD
+
+_pandoc-filter-plantmul_ is distributed under the terms of GNU Affero General Public License v3.0,
+as detailed in the attached `license.md` file.
+
+Builds of this software embed and make use of the following Libraries:
+
+* Kotlin Standard Library, licensed under the Apache 2.0 License
+* Jackson JSON processor streaming parser/generator, licensed under the Apache 2.0 License
+* PlantUML, licensed under the GNU General Public License
 
 
 [tikz]: https://github.com/jgm/pandocfilters/blob/master/examples/tikz.py
